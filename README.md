@@ -10,7 +10,7 @@
 - npm install
 
 ## rodar o projeto
-- nodemon app.js
+- npm run dev
 
 ## comandos banco de dados
 - npx sequelize db:create //criar database

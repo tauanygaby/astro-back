@@ -5,10 +5,10 @@ module.exports = {
     try {
       const {nome, nickname, email, senha, instituicao, idequipe} = req.body;
 
-        const aluno = await Aluno.findOne({ where: { nickname } });
+        const aluno = await Aluno.findOne({ where: { email } });
         
         if (aluno) {
-            res.status(401).json({ message: "Já existe um usuário com este nickname" });
+            res.status(401).json({ message: "Já existe um usuário com este email" });
         } else {
            const aluno = await Aluno.create({ nome, nickname, email, senha, instituicao, idequipe });
 
@@ -22,14 +22,14 @@ module.exports = {
     async atualizacao(req, res) {
         try {
             const { id } = req.params;
-            const { nome, nickname, email, senha, instituicao, idequipe } = req.body;
+            const { nome, senha, instituicao} = req.body;
 
             const aluno = await Aluno.findOne({ where: { id } });
 
             if (!aluno) {
                 res.status(401).json({ message: "Já existe um usuário com este nickname" });
             } else {
-                const aluno = await Aluno.update({ nome, email, senha, instituicao }, { where: { id } });
+                const aluno = await Aluno.update({ nome, senha, instituicao }, { where: { id } });
 
                 res.status(200).json({ aluno });
             }
