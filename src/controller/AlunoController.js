@@ -27,7 +27,7 @@ module.exports = {
             const aluno = await Aluno.findOne({ where: { id } });
 
             if (!aluno) {
-                res.status(401).json({ message: "Já existe um usuário com este nickname" });
+                res.status(401).json({ message: "Já existe um usuário" });
             } else {
                 const aluno = await Aluno.update({ nome, senha, instituicao }, { where: { id } });
 
