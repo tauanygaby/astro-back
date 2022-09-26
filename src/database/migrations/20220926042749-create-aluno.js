@@ -33,7 +33,7 @@ module.exports = {
       },
       idequipe: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       }
     })
   },

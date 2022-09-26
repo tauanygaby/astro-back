@@ -21,18 +21,32 @@ module.exports = {
     },
     async atualizacao(req, res) {
         try {
-            const { id } = req.params;
-            const { nome, senha, instituicao} = req.body;
+            const { email } = req.params;
+            const { nome, nickname, senha, instituicao} = req.body;
 
-            const aluno = await Aluno.findOne({ where: { id } });
+            const aluno = await Aluno.findOne({ where: { email } });
 
             if (!aluno) {
-                res.status(401).json({ message: "Já existe um usuário" });
+                res.status(401).json({ message: "Não existe um usuário" });
             } else {
-                const aluno = await Aluno.update({ nome, senha, instituicao }, { where: { id } });
+                const aluno = await Aluno.update({ nome, nickname, senha, instituicao }, { where: { email } });
 
                 res.status(200).json({ aluno });
             }
+        } catch (err) {
+            res.status(400).json({ err });
+        }
+    },
+    async recupereUm(req, res) {
+        try {
+            const { email } = req.params;
+            const aluno = await Aluno.findOne({ where: { email } });
+
+            if (!aluno) {
+                res.status(401).json({ message: "Não existe um usuário" });
+            }
+
+            res.status(200).json({ aluno });
         } catch (err) {
             res.status(400).json({ err });
         }
@@ -50,6 +64,7 @@ module.exports = {
             res.status(400).json({ err });
         }
     },
+
     async delete(req, res) {
         try {
             const { id } = req.params;
