@@ -1,10 +1,10 @@
 module.exports = {
     dialect: 'mysql',
-    host: 'containers-us-west-56.railway.app',
+    host: 'containers-us-west-36.railway.app',
     username: 'root',
-    password: 'p8SmIeY87igAETLoD5Bn',
+    password: 'GFK71xbNGiIyMuFwqvvm',
     database: 'railway',
-    port: '7213',
+    port: '7147',
     define:{
         timestamps: false,
         underscored: true,    
