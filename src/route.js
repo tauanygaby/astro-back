@@ -9,6 +9,7 @@ router.get('/lista-alunos', AlunoController.listaAlunos);
 router.delete('/delete/:id', AlunoController.delete);
 router.get('/aluno/:email', AlunoController.recupereUm);
 
-router.post('/checklist', ChecklistController.adicionar);
+router.get('/checklist-all', ChecklistController.listar);
+router.post('/checklist', ChecklistController.cadastrar);
 
 module.exports = router;
