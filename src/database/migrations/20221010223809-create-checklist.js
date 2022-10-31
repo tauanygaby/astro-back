@@ -15,6 +15,15 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
+
+      descricao: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      data: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
     })
   },
 
