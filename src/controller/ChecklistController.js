@@ -7,8 +7,7 @@ module.exports = {
 
        const checklist = await Checklist.create({ texto, descricao, data });
 
-        res.status(200).json({ checklist });
-    
+      res.status(200).json({checklist});
     } catch (err) {
       res.status(400).json({err});
     }
