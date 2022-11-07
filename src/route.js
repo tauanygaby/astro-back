@@ -1,6 +1,7 @@
 const {Router} = require("express");
 const AlunoController = require('./controller/AlunoController')
 const ChecklistController = require('./controller/ChecklistController');
+const DiarioDeBordoController = require("./controller/DiarioDeBordoController");
 const EditorController = require("./controller/EditorController");
 const router = Router();
 
@@ -17,5 +18,10 @@ router.put('/editarCheck/:id', ChecklistController.editarCheck);
 router.get('/getCheck/:id', ChecklistController.recupereCheck);
 router.post('/editor', EditorController.cadastrarTexto);
 router.get('/exibir-texto', EditorController.listarTextoEditor);
+
+router.get('/listaDiario', DiarioDeBordoController.listaDiario);
+router.post('/cadastrarDiario', DiarioDeBordoController.cadastrarDiario);
+router.put('/editarDiario/:id', DiarioDeBordoController.editarDiario);
+router.delete('/deleteDiario/:id', DiarioDeBordoController.deleteDiario);
 
 module.exports = router;
