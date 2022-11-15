@@ -11,59 +11,42 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      tituloCapa: {
+      titulocapa: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
 
-      subtituloCapa: {
+      subtitulocapa: {
         type: DataTypes.STRING,
-        allowNull: true,
       },
-      imagemCapa: {
+
+      imagemcapa: {
+        type: DataTypes.STRING,
+      },
+
+      instituicaocapa: {
+        type: DataTypes.STRING,
+      },
+
+      tituloregis: {
+        type: DataTypes.STRING,
+      },
+
+      dataregis: {
+        type: DataTypes.STRING,
+      },
+
+      registo: {
+        type: DataTypes.STRING,
+      },
+
+      imagemregis: {
         type: DataTypes.BLOB,
-        allowNull: true,
       },
 
-      integrantesCapa: {
+      integrantesregis: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
 
-      instituicaoCapa: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-
-      tituloRegis: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      dataRegis: {
-        type: DataTypes.DATE,
-        allowNull: true,
-      },
-
-      horaRegis: {
-        type: DataTypes.TIME,
-        allowNull: true,
-      },
-
-      registro: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-
-      integrantesRegis: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      imagemRegis: {
-        type: DataTypes.BLOB,
-        allowNull: true,
-      },
-
-      
     })
   },
 

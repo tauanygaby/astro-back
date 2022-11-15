@@ -19,9 +19,9 @@ router.get('/getCheck/:id', ChecklistController.recupereCheck);
 router.post('/editor', EditorController.cadastrarTexto);
 router.get('/exibir-texto', EditorController.listarTextoEditor);
 
-router.get('/listaDiario', DiarioDeBordoController.listaDiario);
-router.post('/cadastrarDiario', DiarioDeBordoController.cadastrarDiario);
-router.put('/editarDiario/:id', DiarioDeBordoController.editarDiario);
-router.delete('/deleteDiario/:id', DiarioDeBordoController.deleteDiario);
+router.get('/lista-diario', DiarioDeBordoController.listaDiario);
+router.post('/cadastrar-diario', DiarioDeBordoController.cadastrarDiario);
+router.put('/editar-diario/:id', DiarioDeBordoController.editarDiario);
+router.delete('/delete-diario/:id', DiarioDeBordoController.deleteDiario);
 
 module.exports = router;

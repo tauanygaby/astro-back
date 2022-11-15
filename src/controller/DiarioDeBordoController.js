@@ -1,21 +1,22 @@
-const DiarioDeBordo = require("../models/DiarioDeBordo");
+const Diario = require("../models/Diario");
 
 module.exports = {
   async cadastrarDiario(req, res) {
     try {
-      const {tituloCapa, subtituloCapa, imagemCapa, integrantesCapa, instituicaoCapa} = req.body;
+      const {titulocapa, subtitulocapa, imagemcapa, instituicaocapa, tituloregis, dataregis, registo, imagemregis, integrantesregis  } = req.body;
 
-       const diarios = await DiarioDeBordo.create({ tituloCapa, subtituloCapa, imagemCapa, integrantesCapa, instituicaoCapa });
+       const diarios = await Diario.create({ titulocapa, subtitulocapa, imagemcapa, instituicaocapa, tituloregis, dataregis, registo, imagemregis, integrantesregis });
 
       res.status(200).json({diarios});
     } catch (err) {
       res.status(400).json({err});
+      console.log();
     }
     },
 
       async listaDiario(req, res) {
         try {
-            const diarios = await DiarioDeBordo.findAll();
+            const diarios = await Diario.findAll();
 
             if (!diarios) {
                 res.status(401).json({ message: "Não existem registros cadastrada" });
@@ -31,9 +32,9 @@ module.exports = {
     async deleteDiario(req, res) {
       try {
           const { id } = req.params;
-          await DiarioDeBordo.findOne({ where: { id } });
+          await Diario.findOne({ where: { id } });
           
-          await DiarioDeBordo.destroy({ where: { id } });
+          await Diario.destroy({ where: { id } });
           res.status(200).json({ ok: true });
           
       } catch (err) {
@@ -44,9 +45,9 @@ module.exports = {
   async editarDiario(req, res) {
     try {
         const { id } = req.params;
-        const { tituloCapa, subtituloCapa, imagemCapa, integrantesCapa, instituicaoCapa} = req.body;
+        const { tituloCapa, subtituloCapa, integrantesCapa, instituicaoCapa} = req.body;
 
-        const diarios = await DiarioDeBordo.update({ tituloCapa, subtituloCapa, imagemCapa, integrantesCapa, instituicaoCapa }, { where: { id } });
+        const diarios = await Diario.update({ tituloCapa, subtituloCapa, integrantesCapa, instituicaoCapa }, { where: { id } });
         res.status(200).json({ diarios });
       
     } catch (err) {
@@ -57,7 +58,7 @@ module.exports = {
 async recupereDiario(req, res) {
   try {
       const { id } = req.params;
-      const diarios = await DiarioDeBordo.findOne({ where: { id } });
+      const diarios = await Diario.findOne({ where: { id } });
 
       res.status(200).json({ diarios });
   } catch (err) {
