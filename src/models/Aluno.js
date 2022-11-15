@@ -9,6 +9,7 @@ class Aluno extends Model {
             senha: DataTypes.STRING,
             instituicao: DataTypes.STRING,
             idequipe: DataTypes.INTEGER,
+            fotouser: DataTypes.BLOB
         }, {
             sequelize
         })

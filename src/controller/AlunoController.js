@@ -22,14 +22,14 @@ module.exports = {
     async atualizacao(req, res) {
         try {
             const { email } = req.params;
-            const { nome, nickname, senha, instituicao} = req.body;
+            const { nome, nickname, senha, instituicao, fotouser} = req.body;
 
             const aluno = await Aluno.findOne({ where: { email } });
 
             if (!aluno) {
                 res.status(401).json({ message: "Não existe um usuário" });
             } else {
-                const aluno = await Aluno.update({ nome, nickname, senha, instituicao }, { where: { email } });
+                const aluno = await Aluno.update({ nome, nickname, senha, instituicao, fotouser}, { where: { email } });
 
                 res.status(200).json({ aluno });
             }

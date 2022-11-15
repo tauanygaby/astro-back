@@ -35,6 +35,10 @@ module.exports = {
       idequipe: {
         type: DataTypes.INTEGER,
         allowNull: true,
+      },
+      fotouser: {
+        type: DataTypes.BLOB,
+        allowNull: true,
       }
     })
   },

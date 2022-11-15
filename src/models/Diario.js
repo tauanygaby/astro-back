@@ -10,7 +10,7 @@ class Diario extends Model {
             tituloregis: DataTypes.STRING,
             dataregis: DataTypes.DATE,
             registo: DataTypes.STRING,
-            imagemregis: DataTypes.STRING,
+            imagemregis: DataTypes.BLOB,
             integrantesregis: DataTypes.STRING
         }, {
             sequelize
